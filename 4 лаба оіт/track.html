@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Відстежити замовлення — MIREVO</title>
+    <meta name="description" content="Відстежте своє замовлення MIREVO за номером замовлення або ТТН Нової пошти.">
+    <meta name="theme-color" content="#0f1520">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+    <!-- ================= ІКОНКИ (використовуються через <use>) ================= -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+        <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+        <symbol id="i-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+        <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7"/></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+        <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></symbol>
+        <symbol id="i-truck" viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></symbol>
+        <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M16 14.5h2"/></symbol>
+        <symbol id="i-return" viewBox="0 0 24 24"><path d="M9 14 4 9l5-5"/><path d="M4 9h11a5 5 0 0 1 0 10h-4"/></symbol>
+        <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3" y="8" width="18" height="4"/><path d="M5 12v8h14v-8M12 8v12"/><path d="M12 8S10.5 4 8 4a2 2 0 0 0 0 4M12 8s1.5-4 4-4a2 2 0 0 1 0 4"/></symbol>
+        <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.2 10.9 7.6-4.3M8.2 13.1l7.6 4.3"/></symbol>
+        <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+        <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M4.2 7l15.6 10M4.2 17 19.8 7"/><path d="m9.5 3.5 2.5 2 2.5-2M9.5 20.5l2.5-2 2.5 2"/></symbol>
+        <symbol id="i-telegram" viewBox="0 0 24 24"><path d="M21 4 3 11l6 2 2 6 3-4 5 4z"/><path d="m9 13 8-6"/></symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></symbol>
+    </svg>
+
+    <a href="#main" class="skip-link">Перейти до вмісту</a>
+
+    <!-- ================= ВЕРХНЯ СМУЖКА ================= -->
+    <div class="announce">
+        <div class="container announce-inner">
+            <span>Безкоштовна доставка від 3 000 грн</span>
+            <span class="announce-dot" aria-hidden="true"></span>
+            <span>Оплата при отриманні</span>
+            <span class="announce-dot" aria-hidden="true"></span>
+            <span>Повернення 14 днів</span>
+        </div>
+    </div>
+
+    <!-- ================= ШАПКА ================= -->
+    <header class="header" id="top">
+        <div class="container header-inner">
+            <button class="icon-btn menu-btn" type="button" aria-label="Відкрити меню" aria-controls="drawer" aria-expanded="false" data-drawer-open>
+                <svg><use href="#i-menu"/></svg>
+            </button>
+
+            <a href="index.html" class="logo" aria-label="MIREVO — на головну">
+                <svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true">
+                    <g class="logo-smoke">
+                        <circle cx="34" cy="7" r="1.6"/>
+                        <circle cx="36.5" cy="4" r="2"/>
+                        <circle cx="39.5" cy="1.8" r="1.4"/>
+                    </g>
+                    <path d="M31 10.5v6.5" class="logo-line"/>
+                    <path d="M6 23 24 8l18 15" class="logo-line"/>
+                    <path d="M11 20v20h26V20" class="logo-line"/>
+                    <path class="logo-snow" d="M5 22.6c2-.9 3.6-.3 5-1.6 1.6-1.3 3.4-1 4.6-2.4 1.3-1.6 3.4-1.2 4.6-2.8 1.3-1.6 3-3.4 4.8-4.7 1.8 1.3 3.5 3.1 4.8 4.7 1.2 1.6 3.3 1.2 4.6 2.8 1.2 1.4 3 1.1 4.6 2.4 1.4 1.3 3 .7 5 1.6-1.7 1.3-3.6.9-5 .2-1.6 1-3.4.4-4.6-.8-1.6.6-3.3-.2-4.3-1.5-1.5.4-3.3.4-4.5-.7-1.2 1.1-3 1.1-4.5.7-1 1.3-2.7 2.1-4.3 1.5-1.2 1.2-3 1.8-4.6.8-1.4.7-3.3 1.1-5-.2z"/>
+                    <rect x="20.5" y="27" width="3" height="3"/><rect x="24.5" y="27" width="3" height="3"/>
+                    <rect x="20.5" y="31" width="3" height="3"/><rect x="24.5" y="31" width="3" height="3"/>
+                </svg>
+                <span class="logo-word">MIREVO</span>
+            </a>
+
+            <nav class="nav" aria-label="Головне меню">
+                <ul class="nav-list">
+                    <li><a href="index.html">Головна</a></li>
+                    <li class="has-mega">
+                        <a href="catalog.html" aria-haspopup="true">Каталог</a>
+                        <div class="mega" role="menu">
+                            <ul class="mega-list" id="mega-list"><!-- з products.js --></ul>
+                            <a href="catalog.html?offer=1" class="mega-feature">
+                                <img src="images/interior-living.jpg" alt="" loading="lazy">
+                                <span class="mega-feature-text">
+                                    <small>Сезонна добірка</small>
+                                    <b>Зимові пропозиції</b>
+                                    <span class="link-arrow">Дивитися <svg><use href="#i-arrow"/></svg></span>
+                                </span>
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="catalog.html?offer=1">Акції</a></li>
+                    <li><a href="delivery.html">Доставка й оплата</a></li>
+                    <li><a href="about.html">Про нас</a></li>
+                    <li><a href="contacts.html">Контакти</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="icon-btn" type="button" aria-label="Пошук" aria-controls="search-panel" aria-expanded="false" data-search-toggle>
+                    <svg><use href="#i-search"/></svg>
+                </button>
+                <button class="icon-btn snow-btn" type="button" aria-label="Сніг" aria-pressed="true" data-snow-toggle title="Сніг">
+                    <svg><use href="#i-snow"/></svg>
+                </button>
+                <a href="favorites.html" class="icon-btn hide-sm" aria-label="Обране">
+                    <svg><use href="#i-heart"/></svg>
+                    <span class="counter" data-count="fav" hidden>0</span>
+                </a>
+                <a href="cart.html" class="icon-btn cart-link" aria-label="Кошик">
+                    <svg><use href="#i-bag"/></svg>
+                    <span class="counter" data-count="cart" hidden>0</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Пошук -->
+        <div class="search-panel" id="search-panel" hidden>
+            <form class="container search-form" action="catalog.html" method="get" role="search">
+                <svg class="search-icon"><use href="#i-search"/></svg>
+                <label for="q" class="visually-hidden">Пошук товарів</label>
+                <input type="search" id="q" name="q" placeholder="Свічка, плед, подарунок…" autocomplete="off">
+                <button type="button" class="icon-btn" aria-label="Закрити пошук" data-search-toggle>
+                    <svg><use href="#i-close"/></svg>
+                </button>
+            </form>
+        </div>
+
+        <!-- Гірлянда -->
+        <div class="garland" aria-hidden="true"></div>
+    </header>
+
+    <!-- ================= МОБІЛЬНЕ МЕНЮ ================= -->
+    <div class="drawer" id="drawer" hidden>
+        <div class="drawer-overlay" data-drawer-close></div>
+        <aside class="drawer-panel" aria-label="Меню">
+            <div class="drawer-head">
+                <span class="logo-word">MIREVO</span>
+                <button class="icon-btn" type="button" aria-label="Закрити меню" data-drawer-close>
+                    <svg><use href="#i-close"/></svg>
+                </button>
+            </div>
+            <form class="drawer-search" action="catalog.html" method="get" role="search">
+                <svg><use href="#i-search"/></svg>
+                <label for="q-mobile" class="visually-hidden">Пошук</label>
+                <input type="search" id="q-mobile" name="q" placeholder="Пошук товарів">
+            </form>
+            <p class="drawer-label">Каталог</p>
+            <ul class="drawer-cats" id="drawer-cats"></ul>
+            <ul class="drawer-links">
+                <li><a href="catalog.html?offer=1">Акції</a></li>
+                <li><a href="favorites.html">Обране</a></li>
+                <li><a href="delivery.html">Доставка й оплата</a></li>
+                <li><a href="about.html">Про нас</a></li>
+                <li><a href="contacts.html">Контакти</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <main id="main" class="info-page">
+        <section class="page-head">
+            <div class="container">
+                <nav class="breadcrumbs" aria-label="Навігація">
+                    <a href="index.html">Головна</a>
+                    <span aria-hidden="true">/</span>
+                    <span data-crumb-current>Відстежити замовлення</span>
+                </nav>
+                <h1 class="page-title">Відстежити замовлення</h1>
+                <p class="page-sub">Введіть номер замовлення або ТТН Нової пошти — покажемо, де ваша посилка.</p>
+            </div>
+        </section>
+
+        <div class="container info">
+            <nav class="info-nav" aria-label="Інформація для покупців">
+                <ul>
+                    <li><a href="track.html" aria-current="page">Відстежити замовлення</a></li>
+                    <li><a href="delivery.html">Доставка й оплата</a></li>
+                    <li><a href="delivery.html#returns">Обмін і повернення</a></li>
+                    <li><a href="faq.html">Запитання й відповіді</a></li>
+                    <li><a href="about.html">Про нас</a></li>
+                    <li><a href="contacts.html">Контакти</a></li>
+                    <li><a href="offer.html">Договір оферти</a></li>
+                    <li><a href="privacy.html">Конфіденційність</a></li>
+                </ul>
+            </nav>
+            <article class="prose">
+                <form class="track-form" id="track-form" novalidate>
+                    <div class="field-grid">
+                        <div class="field">
+                            <label for="t-query">Номер замовлення або ТТН</label>
+                            <input type="text" id="t-query" name="query" required inputmode="numeric" autocomplete="off" placeholder="Напр. 12 або 20450012345678">
+                            <span class="field-error">Вкажіть номер замовлення (напр. 12) або ТТН (14 цифр)</span>
+                        </div>
+                        <div class="field">
+                            <label for="t-phone">Телефон, вказаний у замовленні</label>
+                            <input type="tel" id="t-phone" name="phone" required autocomplete="tel" placeholder="067 123 45 67">
+                            <span class="field-error">Вкажіть номер телефону</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="t-submit">Відстежити</button>
+                </form>
+
+                <div class="track-recent" id="track-recent" hidden>
+                    <p class="track-recent-label">Ваші замовлення на цьому пристрої:</p>
+                    <div class="track-recent-list" id="track-recent-list"></div>
+                </div>
+
+                <p class="track-error" id="track-error" role="alert" hidden></p>
+
+                <section class="track-result" id="track-result" aria-live="polite" hidden></section>
+
+                <h2>Корисно знати</h2>
+                <ul>
+                    <li>Номер замовлення ми показали після оформлення, а ТТН надсилаємо в Telegram і Нова пошта — у СМС.</li>
+                    <li>Статус посилки оновлюється автоматично з Нової пошти.</li>
+                    <li>Посилка зберігається у відділенні безкоштовно кілька днів — заберіть її вчасно.</li>
+                    <li>Не знаходить замовлення? <a href="contacts.html">Напишіть нам</a> — підкажемо.</li>
+                </ul>
+            </article>
+        </div>
+    </main>
+
+    <!-- ================= ФУТЕР ================= -->
+    <footer class="footer">
+        <div class="container">
+            <div class="newsletter reveal">
+                <div>
+                    <h2>Листи без поспіху</h2>
+                    <p>Нові колекції, сезонні добірки та закриті пропозиції — не частіше разу на тиждень.</p>
+                </div>
+                <form class="newsletter-form" action="#" method="post" data-newsletter>
+                    <label for="nl-email" class="visually-hidden">Email</label>
+                    <input type="email" id="nl-email" name="email" placeholder="Ваш email" required>
+                    <button type="submit" class="btn btn-primary">Підписатися</button>
+                </form>
+            </div>
+
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo-word">MIREVO</a>
+                    <p>Речі, що наповнюють дім теплом.</p>
+                    <div class="socials">
+                        <a href="https://t.me/mirevo_shop" target="_blank" rel="noopener" class="icon-btn" aria-label="Telegram-канал MIREVO" data-tg-channel><svg><use href="#i-telegram"/></svg></a>
+                        <a href="https://instagram.com/" target="_blank" rel="noopener" class="icon-btn" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
+                    </div>
+                </div>
+                <nav aria-label="Каталог">
+                    <h3>Каталог</h3>
+                    <ul id="footer-cats"></ul>
+                </nav>
+                <nav aria-label="Покупцям">
+                    <h3>Покупцям</h3>
+                    <ul>
+                        <li><a href="delivery.html">Доставка й оплата</a></li>
+                        <li><a href="delivery.html#returns">Обмін і повернення</a></li>
+                        <li><a href="faq.html">Запитання й відповіді</a></li>
+                        <li><a href="offer.html">Договір оферти</a></li>
+                        <li><a href="privacy.html">Політика конфіденційності</a></li>
+                    </ul>
+                </nav>
+                <div>
+                    <h3>Зв'язок</h3>
+                    <ul>
+                        <li><a href="tel:+380000000000" data-contact="phone">+38 (000) 000-00-00</a></li>
+                        <li><a href="mailto:hello@mirevo.ua" data-contact="email">hello@mirevo.ua</a></li>
+                        <li><span class="muted" data-contact="hours">Щодня з 9:00 до 21:00</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2026 MIREVO</span>
+                <span>Оплата при отриманні · Переказ на картку</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Кнопка «нагору» в шапці Діда Мороза -->
+    <a href="#top" class="to-top" id="to-top" aria-label="Повернутися нагору">
+        <svg class="to-top-hat" viewBox="0 0 64 40" aria-hidden="true">
+            <path d="M8 30C12 12 30 4 44 8c6 2 9 7 11 12l-7 3c-2-5-5-8-10-8-11 0-18 8-20 17z" fill="#b8423b"/>
+            <circle cx="56" cy="21" r="5" fill="#f3ede3"/>
+            <rect x="4" y="27" width="46" height="10" rx="5" fill="#f3ede3"/>
+        </svg>
+        <svg class="to-top-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+    </a>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/track.js"></script>
+</body>
+</html>
